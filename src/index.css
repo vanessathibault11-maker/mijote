@@ -73,14 +73,55 @@ button {
   transition: background 0.15s ease;
 }
 
-button:hover {
+button:hover:not(:disabled) {
   background: var(--accent-hover);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .hint {
   margin: 0;
   color: var(--muted);
   font-size: 0.9rem;
+}
+
+.status {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.status--ok {
+  background: rgba(64, 192, 128, 0.12);
+  border: 1px solid rgba(64, 192, 128, 0.4);
+  color: #7ee0a8;
+}
+
+.status--error {
+  background: rgba(255, 92, 92, 0.1);
+  border: 1px solid rgba(255, 92, 92, 0.35);
+  color: #ff9a9a;
+}
+
+.status .hint {
+  color: inherit;
+  opacity: 0.85;
+}
+
+.details {
+  margin: 0.25rem 0 0;
+  padding: 0.5rem 0.75rem;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 code {
